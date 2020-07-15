@@ -289,13 +289,11 @@ class HLSVideoPlayerState extends State<HLSVideoPlayer> {
               child: Container(),
             ),
              MaterialButton(
-              padding: EdgeInsets.only(right:320),
+              padding: EdgeInsets.only(right:MediaQuery.of(context).size.width*0.85),
               minWidth: 0,
               onPressed: () {
                 Navigator.of(context).pop();
-               /* Navigator.of(context).pop();
-                Navigator.of(context).pop();
-               */} ,
+              } ,
               child: Icon(Icons.arrow_back, color: Colors.white),
             ),
        /*     MaterialButton(
@@ -525,13 +523,13 @@ class HLSVideoPlayerState extends State<HLSVideoPlayer> {
       settings: RouteSettings(),
       pageBuilder: _fullScreenRoutePageBuilder,
     );
-/*
+
     SystemChrome.setEnabledSystemUIOverlays([]);
     // if (isAndroid) {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeLeft,
       DeviceOrientation.landscapeRight,
-    ]);*/
+    ]);
     // }
 
     widget.controller.isFullScreen = true;
@@ -545,6 +543,7 @@ class HLSVideoPlayerState extends State<HLSVideoPlayer> {
     SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
     ]);
   }
 }

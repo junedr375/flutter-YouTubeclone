@@ -232,7 +232,7 @@ class _FollowersState extends State<Followers> {
 		            		padding: EdgeInsets.only(top: 10),
 				            child: Container(
 				                width: 100,
-				                height: 50,
+				                height: 40,
 				            
 				                child: Container(
 			                 

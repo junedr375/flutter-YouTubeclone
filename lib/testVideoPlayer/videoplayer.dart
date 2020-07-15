@@ -196,7 +196,7 @@ class _VideoContainerState extends State<VideoContainer>
     videoPlayerController =
         VideoPlayerController.network(pList[index].videoUri);
     videoPlayerController.initialize();
-    videoPlayerController.setLooping(true);
+    videoPlayerController.setLooping(false);
     videoPlayerController.play();
 
     setState(() {

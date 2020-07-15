@@ -5,6 +5,12 @@ import 'package:cognent/screens/channelName.dart';
 
 import 'package:cognent/testVideoPlayer/videoplayer.dart';
 
+
+//package
+
+import 'package:share/share.dart';
+
+
 //module
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -43,6 +49,10 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 	List data;
 	bool isLoaded = false;
 	bool isTap = false;
+
+	bool isLiked = false;
+	bool isdisLiked = false;
+
 	void loadJson() async {
 		String jsonString = await rootBundle.loadString('assets/text/videoJson.json');
 		data = json.decode(jsonString);
@@ -75,9 +85,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 						child: Column(
 						  mainAxisAlignment: MainAxisAlignment.center,
 						  children: <Widget>[
-							VideoContainer(
+							/*VideoContainer(
 							  videoUrl
-							)
+							)*/ Text('dv')
 						  ],
 						),
 					  ),
@@ -114,11 +124,23 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 											icon: Icon(
 											  Icons.thumb_up,
 											),
-											iconSize: 30,
-											color: Colors.black,
-											splashColor: Colors.blue,
-											onPressed: () {},
-										  ),
+											iconSize: 25,
+											color: (!isLiked) ? Colors.black : Colors.blue,
+											splashColor: Colors.grey,
+											onPressed: () {
+												if(!isLiked){
+													setState((){
+														isLiked = true;
+														isdisLiked = false;
+														});
+												} else {
+													setState((){
+														isLiked = false;
+														//isdisLiked = true;
+													});
+												}
+											},
+										 ),
 									),
 									Container(
 										//padding: EdgeInsets.only(top:4),
@@ -136,15 +158,27 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 											icon: Icon(
 											  Icons.thumb_down,
 											),
-											iconSize: 30,
-											color: Colors.black,
+											iconSize: 25,
+											color: (!isdisLiked) ? Colors.black : Colors.blue,
 											splashColor: Colors.blue,
-											onPressed: () {},
+											onPressed: () {
+												if(!isdisLiked){
+													setState((){
+														isLiked = false;
+														isdisLiked = true;
+														});
+												} else {
+													setState((){
+														//isLiked = false;
+														isdisLiked = false;
+													});
+												}
+												},
 										  ),
 									),
 									Container(
 										//padding: EdgeInsets.only(),
-										child: Center(child:Text('DisLike'))
+										child: Center(child:Text('Dislike'))
 									),
 						
 								]
@@ -158,9 +192,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 											icon: Icon(
 											  Icons.shop,
 											),
-											iconSize: 30,
+											iconSize: 25,
 											color: Colors.black,
-											splashColor: Colors.blue,
+											splashColor: Colors.grey,
 											onPressed: () {},
 										  ),
 									),
@@ -180,10 +214,13 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 											icon: Icon(
 											  Icons.share,
 											),
-											iconSize: 30,
+											iconSize: 25,
 											color: Colors.black,
-											splashColor: Colors.blue,
-											onPressed: () {},
+											splashColor: Colors.grey,
+											onPressed: () {
+
+												Share.share('check out my cogent video link ${videoUrl}');
+												},
 										  ),
 									),
 									Container(
@@ -202,9 +239,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 											icon: Icon(
 											  Icons.comment,
 											),
-											iconSize: 30,
+											iconSize: 25,
 											color: Colors.black,
-											splashColor: Colors.blue,
+											splashColor: Colors.grey,
 											onPressed: () {},
 										  ),
 									),
@@ -225,7 +262,8 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 			Container(
 				height: 60,
 				child: Row(
-					children: <Widget>[
+					mainAxisAlignment: MainAxisAlignment.spaceBetween,
+	        children: <Widget>[
 					 Container(
 						padding: EdgeInsets.only(left:10),
 					
@@ -247,7 +285,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 							),
 					 Container(
 
-						padding: EdgeInsets.only(left:20, top:15),
+						padding: EdgeInsets.only(right:40, top:15),
 							child: GestureDetector(
 								onTap: () {
 										Navigator.push(context,MaterialPageRoute(builder: (context) => ChannelName(
@@ -273,10 +311,10 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 						),
 
 					   Container(
-							padding: EdgeInsets.only(top: 10, left: 30),
+							padding: EdgeInsets.only(top: 10, right: 10),
 							child: Container(
 								width: 120,
-								height: 50,
+								height: 40,
 							
 								child: Container(
 							
@@ -331,6 +369,16 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 											GestureDetector(
 												onTap: () {
 													print('videoScreen');
+													Navigator.push(context,MaterialPageRoute(builder: (context) => VideoPlayerPage(
+					          					data[indexChild]['videoUrl'],
+					          					data[indexChild]['thumbnail'],
+					          					data[indexChild]['name'],
+					          					data[indexChild]['description'],
+					          					data[indexChild]['view'],
+					          					data[indexChild]['channelName'],
+					          					data[indexChild]['channelFollower'],
+
+				          					)),);
 													},
 												child: Stack(
 												children: <Widget>[
@@ -338,7 +386,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 													height: 130,
 													margin: EdgeInsets.symmetric(
 													  horizontal: 4.0,
-													  vertical: 10.0,
+													  vertical: 5.0,
 													),
 													width: 150,
 													decoration: BoxDecoration(
@@ -357,7 +405,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 														height:130,
 														width:150,
 														image: NetworkImage(data[indexChild]['thumbnail']),
-														fit: BoxFit.fitWidth,
+														fit: BoxFit.fill,
 													  ),
 													),
 
@@ -395,35 +443,20 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 										  ]
 										),
 								
-								],
-							),
+									],
+								),
 						  );
 						},
 					  ),
+					),
+				  ]
+				),
 			),
-		  ]
 		),
-				),
-				),
-	 /*   floatingActionButton: FloatingActionButton(
-		  onPressed: () {
-			setState(() {
-			  _controller.value.isPlaying
-				  ? _controller.pause()
-				  : _controller.play();
-			});
-		  },
-		  child: Icon(
-			_controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-		  ),
-		),*/
+	
 	 
 	);
   }
 
- /* @override
-  void dispose() {
-	super.dispose();
-	_controller.dispose();
-  }*/
+
 }

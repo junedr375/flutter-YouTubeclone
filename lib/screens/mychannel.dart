@@ -298,7 +298,7 @@ class _MYChannelState extends State<MYChannel> {
 								                    height: 130,
 								                    margin: EdgeInsets.symmetric(
 								                      horizontal: 4.0,
-								                      vertical: 10.0,
+								                      vertical: 2.0,
 								                    ),
 								                    width: 150,
 								                    decoration: BoxDecoration(
@@ -317,7 +317,7 @@ class _MYChannelState extends State<MYChannel> {
 								                        height:130,
 								                        width:150,
 								                        image: NetworkImage(data[indexChild]['thumbnail']),
-								                        fit: BoxFit.fitWidth,
+								                        fit: BoxFit.fill,
 								                      ),
 								                    ),
 
@@ -401,7 +401,7 @@ class _MYChannelState extends State<MYChannel> {
 								                    height: 130,
 								                    margin: EdgeInsets.symmetric(
 								                      horizontal: 4.0,
-								                      vertical: 10.0,
+								                      vertical: 2.0,
 								                    ),
 								                    width: 150,
 								                    decoration: BoxDecoration(
@@ -420,7 +420,7 @@ class _MYChannelState extends State<MYChannel> {
 								                        height:130,
 								                        width:150,
 								                        image: NetworkImage(data[indexChild]['thumbnail']),
-								                        fit: BoxFit.fitWidth,
+								                        fit: BoxFit.fill,
 								                      ),
 								                    ),
 

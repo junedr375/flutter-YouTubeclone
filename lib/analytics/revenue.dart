@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:cognent/analytics/userovertime.dart';
+//import 'package:cognent/analytics/userovertime.dart';
 
 class Revenue extends StatefulWidget {
 	@override
@@ -111,8 +111,13 @@ class _RevenueState extends State<Revenue> {
             		]
             	)
             ),
+            Container(
+            	height: MediaQuery.of(context).size.height*0.70,
+            	child:  _tabSection(context)
+            ),
 
-              Container(
+
+             /* Container(
             	padding: EdgeInsets.only(top:10),
             	height: 60,
             	child: Row(
@@ -163,8 +168,8 @@ class _RevenueState extends State<Revenue> {
 	            		
             		]
             	)
-            ),
-	      		Container(
+            ),*/
+	      	/*	Container(
 	      			child: Center(
 
 	              child: new Image.asset(
@@ -176,10 +181,63 @@ class _RevenueState extends State<Revenue> {
 	                
 	                ),
 	            ),
-	      		),
+	      		),*/
 					]
 				)
 			)
 		);
 	}
+
+	Widget _tabSection(BuildContext context) {
+  return DefaultTabController(
+    length: 2,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          child: TabBar(
+	        	indicatorColor: Colors.blue,
+	          labelColor: Colors.black,
+	          unselectedLabelColor: Colors.grey,  	
+          	tabs: [
+				      Tab(text: "Revenue"),
+	            Tab(text: "User Over Time"),
+            //Tab(text: "User"),
+          ]),
+        ),
+        Container(
+        	height: MediaQuery.of(context).size.height*0.58,
+        	child: TabBarView(children: [
+        		Container(
+		        	child: Center(
+							 child: new Image.asset(
+	                'images/revenue.png',
+	                height:400,
+	                width: 750,
+	                fit: BoxFit.fitWidth,
+	                scale: 0.4,
+	                ),
+	            	),
+	            ),
+        		Container(
+		        	child: Center(
+							 child: new Image.asset(
+	                'images/userovertime.png',
+	                height:400,
+	                width: 750,
+	                fit: BoxFit.fitWidth,
+	                scale: 0.4,
+	                ),
+	            	),
+	            )
+        		]
+        	)
+
+        )
+       ]
+      )
+    );
+	}
+
+
 }
