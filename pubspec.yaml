@@ -34,6 +34,7 @@ dependencies:
   connectivity: ^0.4.6+2
   http: ^0.12.1
   share: '>=0.6.0+2 <2.0.0'
+  image_picker:
   
 
   #firebase_admob:

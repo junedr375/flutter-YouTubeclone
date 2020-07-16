@@ -5,6 +5,8 @@ import 'package:cognent/screens/followers.dart';
 import 'package:cognent/screens/following.dart';
 import 'package:cognent/analytics/revenue.dart';
 
+import 'package:cognent/videoupload/videoUpload.dart';
+
 //module
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -134,10 +136,7 @@ class _MYChannelState extends State<MYChannel> {
 				            child: Container(
 				                width: 130,
 				                height: 50,
-				              /*  decoration: BoxDecoration(
-				                  borderRadius: BorderRadius.circular(15),
-				                  color: Colors.white//lsloginSignupWithApiButton
-				                ),*/
+				             
 				                child: Container(
 			                    padding: EdgeInsets.only(
 			                        top: 5, bottom: 5),
@@ -150,7 +149,8 @@ class _MYChannelState extends State<MYChannel> {
 			                      ),
 			                      //shape: StadiumBorder(),
 			                      onPressed: () {
-			                      
+			                      	Navigator.push(context,MaterialPageRoute(builder: (context) => VideoPlayerScreen()),);
+			                      	
 			                      },
 			                    ),
 				               ),

@@ -85,9 +85,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 						child: Column(
 						  mainAxisAlignment: MainAxisAlignment.center,
 						  children: <Widget>[
-							/*VideoContainer(
-							  videoUrl
-							)*/ Text('dv')
+								VideoContainer(
+								  videoUrl
+								)//Text('dv')
 						  ],
 						),
 					  ),
