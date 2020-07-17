@@ -7,6 +7,7 @@ Feature that this app have
 2. Hls Video Player code is present.
 3. Data loading from Json
 
+![flutter_01](https://user-images.githubusercontent.com/49837673/87746555-86823900-c80e-11ea-8d60-3c20fd02e16f.png)
 
 ![flutter_02](https://user-images.githubusercontent.com/49837673/87691534-4daf7900-c7a8-11ea-8047-a0032eeb4205.png)
 
