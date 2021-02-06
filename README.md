@@ -7,6 +7,9 @@ Feature that this app have
 2. Hls Video Player code is present.
 3. Data loading from Json
 
+
+## <a href="https://drive.google.com/file/d/1qB_nTGKUp940Lr-xM5YWD4US6tKcMgzn/view?usp=sharing">Click Here for App's Video Demo </a>
+
 ![flutter_01](https://user-images.githubusercontent.com/49837673/87746555-86823900-c80e-11ea-8d60-3c20fd02e16f.png)
 
 ![flutter_02](https://user-images.githubusercontent.com/49837673/87691534-4daf7900-c7a8-11ea-8047-a0032eeb4205.png)
